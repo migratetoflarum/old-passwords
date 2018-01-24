@@ -2,7 +2,7 @@
 
 [![Build status](https://travis-ci.org/migratetoflarum/old-passwords.svg?branch=master)](https://travis-ci.org/migratetoflarum/old-passwords) [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/migratetoflarum/old-passwords/blob/master/LICENSE.md) [![Latest Stable Version](https://img.shields.io/packagist/v/migratetoflarum/old-passwords.svg)](https://packagist.org/packages/migratetoflarum/old-passwords) [![Total Downloads](https://img.shields.io/packagist/dt/migratetoflarum/old-passwords.svg)](https://packagist.org/packages/migratetoflarum/old-passwords) [![Donate](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.me/clarkwinkelmann)
 
-This extension allows your users to continue login with their passwords from a previous platform that was using a different hashing algorithm than Flarum.
+This extension allows your users to continue to login with their passwords from a previous platform that was using a different hashing algorithm than Flarum.
 
 ## Installation
 
@@ -135,6 +135,7 @@ Need a custom Flarum extension ? [Contact Clark Winkelmann !](https://clarkwinke
 
 ## Links
 
-- [Source code on GitHub](https://github.com/migratetoflarum/redirects)
-- [Report an issue](https://github.com/migratetoflarum/redirects/issues)
-- [Download via Packagist](https://packagist.org/packages/migratetoflarum/redirects)
+- [Flarum Discuss post](https://discuss.flarum.org/d/8631-old-passwords)
+- [Source code on GitHub](https://github.com/migratetoflarum/old-passwords)
+- [Report an issue](https://github.com/migratetoflarum/old-passwords/issues)
+- [Download via Packagist](https://packagist.org/packages/migratetoflarum/old-passwords)
