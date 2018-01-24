@@ -1,0 +1,131 @@
+<?php
+
+namespace MigrateToFlarum\OldPasswords\Tests;
+
+use MigrateToFlarum\OldPasswords\Hashers\HasherFactory;
+use PHPUnit\Framework\TestCase;
+
+class HasherTest extends TestCase
+{
+    protected function checkPassword(string $password, array $oldPassword): bool
+    {
+        /**
+         * @var $factory HasherFactory
+         */
+        $factory = new HasherFactory();
+        $hasher = $factory->createHasher($oldPassword);
+
+        return $hasher->check($password, $oldPassword);
+    }
+
+    protected function assertHasherChecks(string $password, array $oldPassword)
+    {
+        $this->assertTrue($this->checkPassword($password, $oldPassword), "$password should match " . json_encode($oldPassword));
+    }
+
+    protected function assertHasherDoesntCheck(string $password, array $oldPassword)
+    {
+        $this->assertFalse($this->checkPassword($password, $oldPassword), "$password should match " . json_encode($oldPassword));
+    }
+
+    protected function bcrypt(string $value): string
+    {
+        return password_hash($value, PASSWORD_BCRYPT);
+    }
+
+    public function test_empty_values()
+    {
+        $this->assertHasherDoesntCheck('', [
+            'type' => 'bcrypt',
+            'password' => $this->bcrypt(''),
+        ]);
+
+        $this->assertHasherDoesntCheck('', [
+            'type' => 'md5',
+            'password' => '',
+        ]);
+
+        $this->assertHasherDoesntCheck('', [
+            'type' => 'plain',
+            'password' => '',
+        ]);
+    }
+
+    public function test_bcrypt()
+    {
+        $this->assertHasherChecks('test', [
+            'type' => 'bcrypt',
+            'password' => $this->bcrypt('test'),
+        ]);
+    }
+
+    public function test_md5()
+    {
+        $this->assertHasherChecks('test', [
+            'type' => 'md5',
+            'password' => md5('test'),
+        ]);
+
+        $this->assertHasherChecks('test', [
+            'type' => 'md5',
+            'password' => md5('usernametest'),
+            'salt-before' => 'username',
+        ]);
+
+        $this->assertHasherChecks('test', [
+            'type' => 'md5',
+            'password' => md5('testusername'),
+            'salt-after' => 'username',
+        ]);
+    }
+
+    public function test_md5_bcrypt()
+    {
+        $this->assertHasherChecks('test', [
+            'type' => 'md5-bcrypt',
+            'password' => $this->bcrypt(md5('test')),
+        ]);
+
+        $this->assertHasherChecks('test', [
+            'type' => 'md5-bcrypt',
+            'password' => $this->bcrypt(md5('usernametest')),
+            'salt-before' => 'username',
+        ]);
+    }
+
+    public function test_plain()
+    {
+        $this->assertHasherChecks('test', [
+            'type' => 'plain',
+            'password' => 'test',
+        ]);
+    }
+
+    public function test_sha1()
+    {
+        $this->assertHasherChecks('test', [
+            'type' => 'sha1',
+            'password' => sha1('test'),
+        ]);
+
+        $this->assertHasherChecks('test', [
+            'type' => 'sha1',
+            'password' => sha1('usernametest'),
+            'salt-before' => 'username',
+        ]);
+    }
+
+    public function test_sha1_bcrypt()
+    {
+        $this->assertHasherChecks('test', [
+            'type' => 'sha1-bcrypt',
+            'password' => $this->bcrypt(sha1('test')),
+        ]);
+
+        $this->assertHasherChecks('test', [
+            'type' => 'sha1-bcrypt',
+            'password' => $this->bcrypt(sha1('usernametest')),
+            'salt-before' => 'username',
+        ]);
+    }
+}

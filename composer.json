@@ -1,0 +1,50 @@
+{
+    "name": "migratetoflarum/old-passwords",
+    "description": "Re-hash passwords from an old platform on the fly",
+    "keywords": [
+        "extension",
+        "flarum",
+        "migration",
+        "passwords"
+    ],
+    "type": "flarum-extension",
+    "license": "mit",
+    "authors": [
+        {
+            "name": "Clark Winkelmann",
+            "email": "clark.winkelmann@gmail.com",
+            "homepage": "https://clarkwinkelmann.com/"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/migratetoflarum/old-passwords/issues",
+        "source": "https://github.com/migratetoflarum/old-passwords"
+    },
+    "require": {
+        "php": ">=7.0",
+        "flarum/core": "^0.1.0-beta.7"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Old Passwords",
+            "icon": {
+                "name": "key",
+                "backgroundColor": "#e7672e",
+                "color": "#fafafa"
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "MigrateToFlarum\\OldPasswords\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MigrateToFlarum\\OldPasswords\\Tests\\": "tests/"
+        }
+    }
+}
