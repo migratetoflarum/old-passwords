@@ -93,6 +93,34 @@ class HasherTest extends TestCase
         ]);
     }
 
+    public function test_md5_double()
+    {
+        $this->assertHasherChecks('test', [
+            'type' => 'md5-double',
+            'password' => md5(md5('test')),
+        ]);
+
+        $this->assertHasherChecks('test', [
+            'type' => 'md5-double',
+            'password' => md5('username' . md5('test')),
+            'salt-before' => 'username',
+        ]);
+    }
+
+    public function test_md5_double_bcrypt()
+    {
+        $this->assertHasherChecks('test', [
+            'type' => 'md5-double-bcrypt',
+            'password' => $this->bcrypt(md5(md5('test'))),
+        ]);
+
+        $this->assertHasherChecks('test', [
+            'type' => 'md5-double-bcrypt',
+            'password' => $this->bcrypt(md5('username' . md5('test'))),
+            'salt-before' => 'username',
+        ]);
+    }
+
     public function test_plain()
     {
         $this->assertHasherChecks('test', [
@@ -125,6 +153,34 @@ class HasherTest extends TestCase
         $this->assertHasherChecks('test', [
             'type' => 'sha1-bcrypt',
             'password' => $this->bcrypt(sha1('usernametest')),
+            'salt-before' => 'username',
+        ]);
+    }
+
+    public function test_sha1_double()
+    {
+        $this->assertHasherChecks('test', [
+            'type' => 'sha1-double',
+            'password' => sha1(sha1('test')),
+        ]);
+
+        $this->assertHasherChecks('test', [
+            'type' => 'sha1-double',
+            'password' => sha1('username' . sha1('test')),
+            'salt-before' => 'username',
+        ]);
+    }
+
+    public function test_sha1_double_bcrypt()
+    {
+        $this->assertHasherChecks('test', [
+            'type' => 'sha1-double-bcrypt',
+            'password' => $this->bcrypt(sha1(sha1('test'))),
+        ]);
+
+        $this->assertHasherChecks('test', [
+            'type' => 'sha1-double-bcrypt',
+            'password' => $this->bcrypt(sha1('username' . sha1('test'))),
             'salt-before' => 'username',
         ]);
     }

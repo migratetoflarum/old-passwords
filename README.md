@@ -101,6 +101,30 @@ Example (password = `bcrypt(md5(12345678correcthorsebatterystaple))`):
 
 You can use salts the same way as described for MD5.
 
+## MD5-Double
+
+**/!\ Insecure**: consider using the `md5-double-bcrypt` option below.
+
+Same as MD5, but the password is hashed a first time before the salt is added.
+
+Example (password = `md5(12345678 + md5(correcthorsebatterystaple))`):
+
+```json
+{"type":"md5-double","password":"75ed2cf45b78dfaa65915d83b73cee9b","salt-before":"12345678"}
+```
+
+You can use salts the same way as described for MD5.
+
+## MD5-Double-Bcrypt
+
+Same as MD5-Double, with an extra bcrypt layer.
+
+Example (password = `bcrypt(md5(12345678 + md5(correcthorsebatterystaple)))`):
+
+```json
+{"type":"md5-double-bcrypt","password":"$2y$10$aws79gtmfZzV8/ikoJSCyuIVLDKlStBRvNDdJqAr1r6k4ZYjZmcC2","salt-before":"12345678"}
+```
+
 ### SHA1
 
 **/!\ Insecure**: with or without a salt SHA1 stays weak. Consider using the `sha1-bcrypt` option below.
@@ -125,6 +149,16 @@ Example (password = `bcrypt(sha1(correcthorsebatterystaple))`):
 ```
 
 You can use salts the same way as described for MD5.
+
+### SHA1-Double
+
+**/!\ Insecure**: consider using the `sha1-double-bcrypt` option below.
+
+Same as `md5-double` for sha1.
+
+### SHA1-Double-Bcrypt
+
+Same as `md5-double-bcrypt` for sha1.
 
 ## A MigrateToFlarum extension
 
