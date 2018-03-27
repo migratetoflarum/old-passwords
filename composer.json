@@ -34,10 +34,10 @@
                 "name": "key",
                 "backgroundColor": "#e7672e",
                 "color": "#fafafa"
-            },
-            "flagrow": {
-                "discuss": "https://discuss.flarum.org/d/8631-old-passwords"
             }
+        },
+        "flagrow": {
+            "discuss": "https://discuss.flarum.org/d/8631-old-passwords"
         }
     },
     "autoload": {
