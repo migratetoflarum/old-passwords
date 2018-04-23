@@ -20,12 +20,16 @@
         "issues": "https://github.com/migratetoflarum/old-passwords/issues",
         "source": "https://github.com/migratetoflarum/old-passwords"
     },
+    "suggest": {
+        "hautelook/phpass": "If you need to check against phpass hashes"
+    },
     "require": {
         "php": ">=7.0",
         "flarum/core": "^0.1.0-beta.7"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.5"
+        "phpunit/phpunit": "^6.5",
+        "hautelook/phpass": "^1.1"
     },
     "extra": {
         "flarum-extension": {

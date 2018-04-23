@@ -2,6 +2,7 @@
 
 namespace MigrateToFlarum\OldPasswords\Tests;
 
+use Hautelook\Phpass\PasswordHash;
 use MigrateToFlarum\OldPasswords\Hashers\HasherFactory;
 use PHPUnit\Framework\TestCase;
 
@@ -118,6 +119,19 @@ class HasherTest extends TestCase
             'type' => 'md5-double-bcrypt',
             'password' => $this->bcrypt(md5('username' . md5('test'))),
             'salt-before' => 'username',
+        ]);
+    }
+
+    public function test_phpass()
+    {
+        $this->assertHasherChecks('test', [
+            'type' => 'phpass',
+            'password' => (new PasswordHash(8, false))->HashPassword('test'),
+        ]);
+
+        $this->assertHasherChecks('test', [
+            'type' => 'phpass',
+            'password' => (new PasswordHash(8, true))->HashPassword('test'),
         ]);
     }
 

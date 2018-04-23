@@ -60,6 +60,22 @@ Example (password = `bcrypt(correcthorsebatterystaple)`):
 {"type":"bcrypt","password":"$2y$10$pUdywYeC2WZxZROQK0SPIu7x58OdO/aLxKnHRlfB8lni0aS6EEWdu"}
 ```
 
+### Phpass
+
+Reads portable and bcrypt hashes created with Phpass.
+
+In order to use this type you need to install the [`hautelook/phpass`](https://packagist.org/packages/hautelook/phpass) package:
+
+```bash
+composer require hautelook/phpass:^1.1
+```
+
+Example (password = `portablehash(correcthorsebatterystaple)`):
+
+```json
+{"type":"phpass","password":"$P$Bdjwj4JGIZcMz02HOu69ULVYMPOMK5."}
+```
+
 ### MD5
 
 **/!\ Insecure**: with or without a salt MD5 stays weak. Consider using the `md5-bcrypt` option below.

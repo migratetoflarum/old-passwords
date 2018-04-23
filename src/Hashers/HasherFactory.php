@@ -13,6 +13,7 @@ class HasherFactory
         'md5-bcrypt' => Md5Bcrypt::class,
         'md5-double' => Md5Double::class,
         'md5-double-bcrypt' => Md5DoubleBcrypt::class,
+        'phpass' => Phpass::class,
         'plain' => Plain::class,
         'sha1' => Sha1::class,
         'sha1-bcrypt' => Sha1Bcrypt::class,
