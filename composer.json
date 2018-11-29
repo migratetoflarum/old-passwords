@@ -24,8 +24,7 @@
         "hautelook/phpass": "If you need to check against phpass hashes"
     },
     "require": {
-        "php": ">=7.0",
-        "flarum/core": "^0.1.0-beta.7"
+        "flarum/core": "^0.1.0-beta.8"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.5",
@@ -35,7 +34,7 @@
         "flarum-extension": {
             "title": "Old Passwords",
             "icon": {
-                "name": "key",
+                "name": "fas fa-key",
                 "backgroundColor": "#e7672e",
                 "color": "#fafafa"
             }

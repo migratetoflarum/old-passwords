@@ -2,7 +2,7 @@
 
 namespace MigrateToFlarum\OldPasswords\Listeners;
 
-use Flarum\Event\CheckUserPassword;
+use Flarum\User\Event\CheckingPassword;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Contracts\Hashing\Hasher;
 use MigrateToFlarum\OldPasswords\Hashers\HasherFactory;
@@ -11,10 +11,10 @@ class CheckPassword
 {
     public function subscribe(Dispatcher $events)
     {
-        $events->listen(CheckUserPassword::class, [$this, 'checkPassword']);
+        $events->listen(CheckingPassword::class, [$this, 'checkPassword']);
     }
 
-    public function checkPassword(CheckUserPassword $event)
+    public function checkPassword(CheckingPassword $event)
     {
         if (!is_null($event->user->migratetoflarum_old_password) && !empty($event->password)) {
             if (!empty($event->user->password)) {
