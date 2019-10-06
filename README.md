@@ -161,7 +161,7 @@ You have to run every old SHA1 password hash through bcrypt and store the result
 Example (password = `bcrypt(sha1(correcthorsebatterystaple))`):
 
 ```json
-{"type":"sha1","password":"$2y$10$b.K9J5Cc7FBJxtuy/hL/vuypT/2vn5jM42M6vpCFIKBfz9n.HAG2a"}
+{"type":"sha1-bcrypt","password":"$2y$10$b.K9J5Cc7FBJxtuy/hL/vuypT/2vn5jM42M6vpCFIKBfz9n.HAG2a"}
 ```
 
 You can use salts the same way as described for MD5.
@@ -172,9 +172,21 @@ You can use salts the same way as described for MD5.
 
 Same as `md5-double` for sha1.
 
+Example (password = `sha1(12345678 + sha1(correcthorsebatterystaple))`):
+
+```json
+{"type":"sha1-double","password":"7e7247394d9283ce8b0cf6f862eae667668f1489","salt-before":"12345678"}
+```
+
 ### SHA1-Double-Bcrypt
 
 Same as `md5-double-bcrypt` for sha1.
+
+Example (password = `bcrypt(sha1(12345678 + sha1(correcthorsebatterystaple)))`):
+
+```json
+{"type":"sha1-double-bcrypt","password":"$2y$10$vtO9973AbQKq2vb9c0zH/OZxUNNagPxrZydMpQelU4L07BJG1Z8cm","salt-before":"12345678"}
+```
 
 ## A MigrateToFlarum extension
 
