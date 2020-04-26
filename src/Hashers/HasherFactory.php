@@ -10,6 +10,7 @@ class HasherFactory
     protected $types = [
         'bcrypt' => Bcrypt::class,
         'md5' => Md5::class,
+        'kmd5' => Kmd5::class,
         'md5-bcrypt' => Md5Bcrypt::class,
         'md5-double' => Md5Double::class,
         'md5-double-bcrypt' => Md5DoubleBcrypt::class,

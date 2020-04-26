@@ -198,4 +198,12 @@ class HasherTest extends TestCase
             'salt-before' => 'username',
         ]);
     }
+
+    public function test_kmd5()
+    {
+        $this->assertHasherChecks('test',[
+            'type' => 'kmd5',
+            'password' => '067982a29f29fb39Fgec78f351c521f0ea'
+        ]);
+    }
 }
