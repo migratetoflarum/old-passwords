@@ -60,6 +60,19 @@ class HasherTest extends TestCase
         ]);
     }
 
+    public function test_kmd5()
+    {
+        $this->assertHasherChecks('test', [
+            'type' => 'kmd5',
+            'password' => '067982a29f29fb39Fgec78f351c521f0ea',
+        ]);
+
+        $this->assertHasherChecks('correcthorsebatterystaple', [
+            'type' => 'kmd5',
+            'password' => 'caecd5d8c1e3fd9212c2c1cb348fedaed1',
+        ]);
+    }
+
     public function test_md5()
     {
         $this->assertHasherChecks('test', [

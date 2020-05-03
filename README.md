@@ -188,6 +188,16 @@ Example (password = `bcrypt(sha1(12345678 + sha1(correcthorsebatterystaple)))`):
 {"type":"sha1-double-bcrypt","password":"$2y$10$vtO9973AbQKq2vb9c0zH/OZxUNNagPxrZydMpQelU4L07BJG1Z8cm","salt-before":"12345678"}
 ```
 
+### KMD5
+
+MD5-based hash used by [Unclassified NewsBoard](http://newsboard.unclassified.de/).
+
+Example (password = `first16bytes(md5(correcthorsebatterystaple)) + 12 + last16bytes(md5(correcthorsebatterystaple))`):
+
+```json
+{"type":"kmd5","password":"caecd5d8c1e3fd9212c2c1cb348fedaed1"}
+```
+
 ## A MigrateToFlarum extension
 
 This is a free extension by MigrateToFlarum, an online forum migration tool (launching soon).
