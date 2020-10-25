@@ -24,7 +24,8 @@
         "hautelook/phpass": "If you need to check against phpass hashes"
     },
     "require": {
-        "flarum/core": "^0.1.0-beta.8"
+        "flarum/core": "^0.1.0-beta.14",
+        "ext-json": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.5",
@@ -40,7 +41,7 @@
             }
         },
         "flagrow": {
-            "discuss": "https://discuss.flarum.org/d/8631-old-passwords"
+            "discuss": "https://discuss.flarum.org/d/8631"
         }
     },
     "autoload": {

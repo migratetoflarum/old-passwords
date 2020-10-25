@@ -2,10 +2,10 @@
 
 namespace MigrateToFlarum\OldPasswords;
 
-use Illuminate\Contracts\Events\Dispatcher;
+use Flarum\Extend;
+use Flarum\User\Event\CheckingPassword;
 
 return [
-    function (Dispatcher $events) {
-        $events->subscribe(Listeners\CheckPassword::class);
-    }
+    (new Extend\Event())
+        ->listen(CheckingPassword::class, Listeners\CheckPassword::class),
 ];

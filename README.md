@@ -6,10 +6,6 @@ This extension allows your users to continue to login with their passwords from 
 
 ## Installation
 
-**This extension requires PHP7 or above**
-
-Use [Bazaar](https://discuss.flarum.org/d/5151-flagrow-bazaar-the-extension-marketplace) or install manually:
-
 ```bash
 composer require migratetoflarum/old-passwords
 ```
@@ -207,7 +203,7 @@ Need a custom Flarum extension ? [Contact Clark Winkelmann !](https://clarkwinke
 
 ## Links
 
-- [Flarum Discuss post](https://discuss.flarum.org/d/8631-old-passwords)
+- [Flarum Discuss post](https://discuss.flarum.org/d/8631)
 - [Source code on GitHub](https://github.com/migratetoflarum/old-passwords)
 - [Report an issue](https://github.com/migratetoflarum/old-passwords/issues)
 - [Download via Packagist](https://packagist.org/packages/migratetoflarum/old-passwords)
