@@ -18,7 +18,8 @@
     ],
     "support": {
         "issues": "https://github.com/migratetoflarum/old-passwords/issues",
-        "source": "https://github.com/migratetoflarum/old-passwords"
+        "source": "https://github.com/migratetoflarum/old-passwords",
+        "forum": "https://discuss.flarum.org/d/8631"
     },
     "suggest": {
         "hautelook/phpass": "If you need to check against phpass hashes"
@@ -34,6 +35,7 @@
     "extra": {
         "flarum-extension": {
             "title": "Old Passwords",
+            "category": "feature",
             "icon": {
                 "name": "fas fa-key",
                 "backgroundColor": "#e7672e",
