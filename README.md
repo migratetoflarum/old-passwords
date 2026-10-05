@@ -1,6 +1,6 @@
 # Old Passwords extension by MigrateToFlarum
 
-[![Build status](https://travis-ci.org/migratetoflarum/old-passwords.svg?branch=master)](https://travis-ci.org/migratetoflarum/old-passwords) [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/migratetoflarum/old-passwords/blob/master/LICENSE.md) [![Latest Stable Version](https://img.shields.io/packagist/v/migratetoflarum/old-passwords.svg)](https://packagist.org/packages/migratetoflarum/old-passwords) [![Total Downloads](https://img.shields.io/packagist/dt/migratetoflarum/old-passwords.svg)](https://packagist.org/packages/migratetoflarum/old-passwords) [![Donate](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.me/clarkwinkelmann)
+[![Build status](https://github.com/migratetoflarum/old-passwords/actions/workflows/test.yml/badge.svg)](https://github.com/migratetoflarum/old-passwords/actions/workflows/test.yml) [![MIT license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/migratetoflarum/old-passwords/blob/master/LICENSE.md) [![Latest Stable Version](https://img.shields.io/packagist/v/migratetoflarum/old-passwords.svg)](https://packagist.org/packages/migratetoflarum/old-passwords) [![Total Downloads](https://img.shields.io/packagist/dt/migratetoflarum/old-passwords.svg)](https://packagist.org/packages/migratetoflarum/old-passwords) [![Donate](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.me/clarkwinkelmann)
 
 This extension allows your users to continue to login with their passwords from a previous platform that was using a different hashing algorithm than Flarum.
 
@@ -60,10 +60,10 @@ Example (password = `bcrypt(correcthorsebatterystaple)`):
 
 Reads portable and bcrypt hashes created with Phpass.
 
-In order to use this type you need to install the [`hautelook/phpass`](https://packagist.org/packages/hautelook/phpass) package:
+In order to use this type you need to install the [`bordoni/phpass`](https://packagist.org/packages/bordoni/phpass) package:
 
 ```bash
-composer require hautelook/phpass:^1.1
+composer require bordoni/phpass:^0.3
 ```
 
 Example (password = `portablehash(correcthorsebatterystaple)`):

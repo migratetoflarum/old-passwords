@@ -1,0 +1,53 @@
+name: Test
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  test:
+    name: Flarum ${{ matrix.flarum }}, PHP ${{ matrix.php }}
+    runs-on: ubuntu-26.04
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['7.3', '7.4', '8.0', '8.1', '8.2', '8.3', '8.4']
+        flarum: ['1']
+        include:
+        - { php: '8.3', flarum: '2' }
+        - { php: '8.4', flarum: '2' }
+        - { php: '8.5', flarum: '2' }
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v7
+      with:
+        persist-credentials: false
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php }}
+        coverage: none
+
+    - name: Install Dependencies
+      # Flarum 1 depends on package versions with security advisories, which Composer blocks by default
+      env:
+        COMPOSER_NO_BLOCKING: 1
+        FLARUM_CONSTRAINT: ${{ matrix.flarum == '1' && '^1.0' || '^2.0.0-beta' }}
+      run: |
+        composer require --no-update "flarum/core:$FLARUM_CONSTRAINT"
+        composer update --no-interaction --no-progress
+
+    - name: Run Tests
+      run: vendor/bin/phpunit
