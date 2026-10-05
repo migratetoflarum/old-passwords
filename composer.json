@@ -22,7 +22,7 @@
         "forum": "https://discuss.flarum.org/d/8631"
     },
     "suggest": {
-        "hautelook/phpass": "If you need to check against phpass hashes"
+        "bordoni/phpass": "If you need to check against phpass hashes"
     },
     "require": {
         "flarum/core": "^1.0",
@@ -30,7 +30,7 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
-        "hautelook/phpass": "^1.1"
+        "bordoni/phpass": "^0.3"
     },
     "extra": {
         "flarum-extension": {
